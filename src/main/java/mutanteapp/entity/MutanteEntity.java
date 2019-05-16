@@ -9,17 +9,18 @@ import java.util.Arrays;
  */
 
 @Entity
-@Table(name = "MUTANTES")
+@Table(name = "MUTANTS")
 public class MutanteEntity {
     @Id
-    @GeneratedValue
+    @Column(name = "MUTANT_ID")
+    @GeneratedValue(strategy=GenerationType.AUTO)
     long id;
-    @Column
+    @Column(name = "MUTANT_DNA_SECUENCE")
     private String[] secuence;
-    @Column
+    @Column(name = "MUTANT_STATUS")
     private boolean status;
-    @Column(name = "created_at")
-    private LocalDateTime date;//= LocalDateTime.now();
+    @Column(name = "CREATED_AT")
+    private LocalDateTime date = LocalDateTime.now();
 
     public MutanteEntity() {
     }
@@ -66,4 +67,5 @@ public class MutanteEntity {
                 ", date=" + date +
                 '}';
     }
+
 }

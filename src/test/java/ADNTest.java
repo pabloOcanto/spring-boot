@@ -1,7 +1,7 @@
+import mutanteapp.utility.ADN;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import mutanteapp.utility.ADN;
 
 /**
  * Created by Pablo on 6/5/2019.
@@ -11,34 +11,34 @@ public class ADNTest {
     long TInicio, TFin, tiempo;
 
     @Before
-    public void InializeTest(){
-        mutante =new ADN();
+    public void InializeTest() {
+        mutante = new ADN();
         //mutante =ADN.getInstance();
     }
 
 
     @Test
-    public void testDesializeMethod(){
+    public void testDesializeMethod() {
 
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testDesializeMethod");
         System.out.println("---------------------------------------------------------------------");
         String[] dna = {"ATGCGA", "CAGTGC"};
         mutante.setAdnSecuence(dna);
-        Assert.assertTrue(mutante.getAdnSecuence().get('A').get(0).get(0)==0);
-        Assert.assertTrue(mutante.getAdnSecuence().get('A').get(0).get(1)==5);
-        Assert.assertTrue(mutante.getAdnSecuence().get('T').get(0).get(0)==1);
-        Assert.assertTrue(mutante.getAdnSecuence().get('G').get(0).get(0)==2);
-        Assert.assertTrue(mutante.getAdnSecuence().get('C').get(0).get(0)==3);
+        Assert.assertTrue(mutante.getAdnSecuence().get('A').get(0).get(0) == 0);
+        Assert.assertTrue(mutante.getAdnSecuence().get('A').get(0).get(1) == 5);
+        Assert.assertTrue(mutante.getAdnSecuence().get('T').get(0).get(0) == 1);
+        Assert.assertTrue(mutante.getAdnSecuence().get('G').get(0).get(0) == 2);
+        Assert.assertTrue(mutante.getAdnSecuence().get('C').get(0).get(0) == 3);
 
-        Assert.assertTrue(mutante.getAdnSecuence().get('A').get(1).get(0)==1);
-        Assert.assertTrue(mutante.getAdnSecuence().get('T').get(1).get(0)==3);
-        Assert.assertTrue(mutante.getAdnSecuence().get('G').get(1).get(0)==2);
-        Assert.assertTrue(mutante.getAdnSecuence().get('G').get(1).get(1)==4);
-        Assert.assertTrue(mutante.getAdnSecuence().get('C').get(1).get(0)==0);
-        Assert.assertTrue(mutante.getAdnSecuence().get('C').get(1).get(1)==5);
+        Assert.assertTrue(mutante.getAdnSecuence().get('A').get(1).get(0) == 1);
+        Assert.assertTrue(mutante.getAdnSecuence().get('T').get(1).get(0) == 3);
+        Assert.assertTrue(mutante.getAdnSecuence().get('G').get(1).get(0) == 2);
+        Assert.assertTrue(mutante.getAdnSecuence().get('G').get(1).get(1) == 4);
+        Assert.assertTrue(mutante.getAdnSecuence().get('C').get(1).get(0) == 0);
+        Assert.assertTrue(mutante.getAdnSecuence().get('C').get(1).get(1) == 5);
 
-        Assert.assertTrue(mutante.getAdnSecuence().size()==4);
+        Assert.assertTrue(mutante.getAdnSecuence().size() == 4);
 
         System.out.println(mutante);
 
@@ -49,11 +49,11 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutanteByRowWithC(){
+    public void testMutanteByRowWithC() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutanteByRow");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"ATGCGA", "CAGTGC", "TTCTGT", "TGTAGG", "CCCCTA", "TCACTG"};
+        String[] adnMutante = {"ATGCGA", "CAGTGC", "TTCTGT", "TGTAGG", "CCCCTA", "TCACTG"};
 
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
@@ -63,7 +63,7 @@ public class ADNTest {
 
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
         //Assert.assertTrue(mutante.getOutput()==4);
     }
 
@@ -73,17 +73,17 @@ public class ADNTest {
 
 
     @Test
-    public void testMutanteByRowWithG(){
+    public void testMutanteByRowWithG() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutanteByRow");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"ATGCGA", "GGGGGC", "TTCTAT", "TGTACG", "CCTCTA", "TCACTG"};
+        String[] adnMutante = {"ATGCGA", "GGGGGC", "TTCTAT", "TGTACG", "CCTCTA", "TCACTG"};
 
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
         Assert.assertEquals(java.util.Optional.of('G'), java.util.Optional.ofNullable(mutante.getOutput()));
         System.out.println(mutante.getAdnSecuence().get('G'));
         System.out.println(mutante);
@@ -97,19 +97,19 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutanteByColumn(){
+    public void testMutanteByColumn() {
 
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutanteByColumn");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"ATGCGA", "CAGTGC", "TTGTGT", "TGGATC", "ACCCTA", "TCACTG"};
+        String[] adnMutante = {"ATGCGA", "CAGTGC", "TTGTGT", "TGGATC", "ACCCTA", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
 
     }
 
@@ -119,18 +119,18 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutanteByMainDiagonalsWithA(){
+    public void testMutanteByMainDiagonalsWithA() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutanteByMainDiagonalsWithA");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"ATGCGA", "CAGTGC", "TTATGT", "TGGAAC", "ACCCTA", "TCACTG"};
+        String[] adnMutante = {"ATGCGA", "CAGTGC", "TTATGT", "TGGAAC", "ACCCTA", "TCACTG"};
         //mutanteapp.utility.ADN mutante = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
 
@@ -140,18 +140,18 @@ public class ADNTest {
 
 
     @Test
-    public void testMutantByMainDiagonalsWithT(){
+    public void testMutantByMainDiagonalsWithT() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByMainDiagonalsWithT");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"TTGCGA", "ATGTGC", "TATTGT", "TGGTAC", "ACCCTA", "TCACTG"};
+        String[] adnMutante = {"TTGCGA", "ATGTGC", "TATTGT", "TGGTAC", "ACCCTA", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
 
@@ -160,18 +160,18 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutantByMainDiagonalsWithG(){
+    public void testMutantByMainDiagonalsWithG() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByMainDiagonalsWithG");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "AGTTGC", "TAGTGT", "TGAGCC", "ACCCTA", "TCACTG"};
+        String[] adnMutante = {"GTGCGA", "AGTTGC", "TAGTGT", "TGAGCC", "ACCCTA", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
     /*
@@ -179,18 +179,18 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutantByAntiDiagonalsWithA(){
+    public void testMutantByAntiDiagonalsWithA() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByAntiDiagonalsWithA");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "AGTTGC", "TAATGT", "TGAACC", "ACCCAG", "TCACTA"};
+        String[] adnMutante = {"GTGCGA", "AGTTGC", "TAATGT", "TGAACC", "ACCCAG", "TCACTA"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
 
@@ -200,18 +200,18 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutantByAntiDiagonalsWithC(){
+    public void testMutantByAntiDiagonalsWithC() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByAntiDiagonalsWithC");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "AAGTGC", "TCTCGT", "TGCACG", "ACGTCG", "CCACTG"};
+        String[] adnMutante = {"GTGCGA", "AAGTGC", "TCTCGT", "TGCACG", "ACGTCG", "CCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
     /*
@@ -221,18 +221,18 @@ public class ADNTest {
 
 
     @Test
-    public void testMutantByAntiDiagonalsWithT(){
+    public void testMutantByAntiDiagonalsWithT() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByAntiDiagonalsWithT");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "AAGTGC", "TTTCGT", "TGTACG", "ATGTCG", "TCACTG"};
+        String[] adnMutante = {"GTGCGA", "AAGTGC", "TTTCGT", "TGTACG", "ATGTCG", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
 
@@ -244,18 +244,18 @@ public class ADNTest {
 
 
     @Test
-    public void testMutantByAntiDiagonalsWithT2(){
+    public void testMutantByAntiDiagonalsWithT2() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByAntiDiagonalsWithT2");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "AGTATC", "AAGTGT", "GTTACG", "ATGTCG", "GCACTG"};
+        String[] adnMutante = {"GTGCGA", "AGTATC", "AAGTGT", "GTTACG", "ATGTCG", "GCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
 
@@ -269,18 +269,18 @@ public class ADNTest {
 
 
     @Test
-    public void testMutantByTransverSalDiagonalWithT(){
+    public void testMutantByTransverSalDiagonalWithT() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByTransverSalDiagonal");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "ACTTGC", "TATTGT", "GGACTC", "ACCCTA", "TCACTG"};
+        String[] adnMutante = {"GTGCGA", "ACTTGC", "TATTGT", "GGACTC", "ACCCTA", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println("Tiempo de Ejecucion del Algoritmo " +Math.abs(TInicio-TFin));
+        System.out.println("Tiempo de Ejecucion del Algoritmo " + Math.abs(TInicio - TFin));
     }
 
 
@@ -291,11 +291,11 @@ public class ADNTest {
 
 
     @Test
-    public void testMutantByTransverSalDiagonalWithT2(){
+    public void testMutantByTransverSalDiagonalWithT2() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByTransverSalDiagonalWithT2");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "ACTAGC", "TAGTGT", "TGAGTC", "ACCGTT", "TCACGT"};
+        String[] adnMutante = {"GTGCGA", "ACTAGC", "TAGTGT", "TGAGTC", "ACCGTT", "TCACGT"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
@@ -303,7 +303,7 @@ public class ADNTest {
         Assert.assertEquals(java.util.Optional.of('T'), java.util.Optional.ofNullable(mutante.getOutput()));
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println("Tiempo de Ejecucion del Algoritmo " +Math.abs(TInicio-TFin));
+        System.out.println("Tiempo de Ejecucion del Algoritmo " + Math.abs(TInicio - TFin));
     }
 
 
@@ -316,11 +316,11 @@ public class ADNTest {
 
 
     @Test
-    public void testMutantByTransverSalDiagonalWithT3(){
+    public void testMutantByTransverSalDiagonalWithT3() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByTransverSalDiagonalWithT2");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "ACGTGC", "TAGTGT", "TGAGTC", "ACCGTT", "TCACGC"};
+        String[] adnMutante = {"GTGCGA", "ACGTGC", "TAGTGT", "TGAGTC", "ACCGTT", "TCACGC"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
@@ -329,7 +329,7 @@ public class ADNTest {
         //Assert.assertEquals(java.util.Optional.of('T'),mutante.getOutput());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println("Tiempo de Ejecucion del Algoritmo " +Math.abs(TInicio-TFin));
+        System.out.println("Tiempo de Ejecucion del Algoritmo " + Math.abs(TInicio - TFin));
 
     }
 
@@ -341,11 +341,11 @@ public class ADNTest {
     */
 
     @Test
-    public void testMutantByAntiTransversalesWithA(){
+    public void testMutantByAntiTransversalesWithA() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testMutantByAntiTransversalesWithA");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "ACTTGC", "TAGTGT", "TGAGTC", "GCCATA", "TCACTG"};
+        String[] adnMutante = {"GTGCGA", "ACTTGC", "TAGTGT", "TGAGTC", "GCCATA", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
@@ -353,7 +353,7 @@ public class ADNTest {
         Assert.assertTrue(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println("Tiempo de Ejecucion del Algoritmo " +Math.abs(TInicio-TFin));
+        System.out.println("Tiempo de Ejecucion del Algoritmo " + Math.abs(TInicio - TFin));
 
     }
 
@@ -369,18 +369,18 @@ public class ADNTest {
 
 
     @Test
-    public void testIsNotMutant(){
+    public void testIsNotMutant() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testIsNotMutant");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {"GTGCGA", "ACTTGC", "TAGTGT", "TGAGCC", "ACCCTA", "TCACTG"};
+        String[] adnMutante = {"GTGCGA", "ACTTGC", "TAGTGT", "TGAGCC", "ACCCTA", "TCACTG"};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertFalse(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
 
     /*
@@ -388,29 +388,19 @@ public class ADNTest {
     */
 
     @Test
-    public void testWithMutantEmpty(){
+    public void testWithMutantEmpty() {
         System.out.println("---------------------------------------------------------------------");
         System.out.println("testWithMutantEmpty");
         System.out.println("---------------------------------------------------------------------");
-        String[] adnMutante=  {""};
+        String[] adnMutante = {""};
         //mutanteapp.utility.ADN mutante2 = new mutanteapp.utility.ADN();
         TInicio = System.currentTimeMillis();
         mutante.setAdnSecuence(adnMutante);
         Assert.assertFalse(mutante.isHuman());
         TFin = System.currentTimeMillis();
         System.out.println(mutante);
-        System.out.println(TInicio-TFin);
+        System.out.println(TInicio - TFin);
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }
